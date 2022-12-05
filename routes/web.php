@@ -13,26 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// ----------------------
-
-// Route::get('/demo', function () {
-//     echo "hello world";
-// });
-
-Route::post('/test', function () {
-    echo "Testing the route";
+Route::get('/home/{name?}', function ($name = null) {
+    $demo = "<h2>aDMiac</h2>";
+    $data = compact('name','demo');
+    return view('home')->with($data);
 });
 
-// Route::get('/demo', function () {
-//     return view('demo');
-// });
-
-Route::get('/demo/{name}/{id?}', function ($name, $id = null) {
-    $data = compact('name','id');
-    return view('demo') -> with($data);
+Route::get('/About', function () {
+    return view('About');
 });
-//http://127.0.0.1:8000/demo/Admin/011
