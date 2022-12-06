@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DemoController;
+use App\Http\Controllers\SingleActionController;
+use App\Http\Controllers\PhotoController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -12,13 +16,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Basic controller
+Route::get('/',[DemoController::class,'index']);
+Route::get('/about','App\Http\Controllers\DemoController@about');
+//Single Action Controller
+Route::get('/con',SingleActionController::class);
+//Resource Controller
+Route::resource('/photo',PhotoController::class);
 
-Route::get('/home/{name?}', function ($name = null) {
-    $demo = "<h2>aDMiac</h2>";
-    $data = compact('name','demo');
-    return view('home')->with($data);
-});
-
-Route::get('/About', function () {
-    return view('About');
-});
