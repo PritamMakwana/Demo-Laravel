@@ -16,20 +16,50 @@
 
         <form action="{{url('/')}}/regi" method="post">
           @csrf
+          <!-- <pre>
+          @php 
+          print_r($errors->all());
+          @endphp
+          </pre> -->
+
         <div class="form-group">
         <div class="mb-3">   
           <label for="" class="form-label">Name</label>
-          <input type="text" name="name" id="" class="form-control" placeholder="" aria-describedby="helpId">
+          <input type="text" name="name" id="" class="form-control" placeholder="" aria-describedby="helpId" value="{{old('name')}}">
+          <span class="text-danger">
+            @error('name')
+            {{$message}}
+            @enderror
+          </span>
         </div>
 
         <div class="mb-3">   
           <label for="" class="form-label">Email</label>
-          <input type="email" name="email" id="" class="form-control" placeholder="" aria-describedby="helpId">
+          <input type="email" name="email" id="" class="form-control" placeholder="" aria-describedby="helpId" value="{{old('email')}}">
+          <span class="text-danger">            
+            @error('email')
+            {{$message}}
+            @enderror</span>
         </div>
 
         <div class="mb-3">   
           <label for="" class="form-label">Password</label>
           <input type="password" name="password" id="" class="form-control" placeholder="" aria-describedby="helpId">
+          <span class="text-danger">
+          @error('password')
+            {{$message}}
+            @enderror
+          </span>
+        </div>
+
+        <div class="mb-3">   
+          <label for="" class="form-label">Confirm Password</label>
+          <input type="password" name="password_con" id="" class="form-control" placeholder="" aria-describedby="helpId">
+          <span class="text-danger">
+          @error('password_con')
+            {{$message}}
+            @enderror
+          </span>
         </div>
 
         <button class="btn btn-primary" > Submit</button>
