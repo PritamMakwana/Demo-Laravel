@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DemoController;
-use App\Http\Controllers\SingleActionController;
-use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\RegistrationController;
+
 
 
 /*
@@ -16,11 +15,6 @@ use App\Http\Controllers\PhotoController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Basic controller
-Route::get('/',[DemoController::class,'index']);
-Route::get('/about','App\Http\Controllers\DemoController@about');
-//Single Action Controller
-Route::get('/con',SingleActionController::class);
-//Resource Controller
-Route::resource('/photo',PhotoController::class);
 
+Route::get('/regi',[RegistrationController::class,'index']);
+Route::post('/regi',[RegistrationController::class,'register']);
