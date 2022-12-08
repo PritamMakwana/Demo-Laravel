@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\ProvisionServer;
 use App\Models\Customer;
 
 /*
@@ -15,13 +16,10 @@ use App\Models\Customer;
 |
 */
 
-Route::get('/regi',[RegistrationController::class,'index']);
-Route::post('/regi',[RegistrationController::class,'register']);
+// Route::get('/regi',[RegistrationController::class,'index']);
+// Route::post('/regi',[RegistrationController::class,'register']);
 
 
-Route::get('/customer',function(){
-    $customers = Customer::all();
-    echo "<pre>";
-    print_r($customers->toArray());
+Route::get('/customer',[ProvisionServer::class,'index']);
+Route::post('/customer',[ProvisionServer::class,'store']);
 
-});

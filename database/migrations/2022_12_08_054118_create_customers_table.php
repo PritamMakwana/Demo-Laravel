@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id('customer_id');
             $table->string('name',60);
             $table->string('email',100);
-            $table->enum('gender',["M","F","O"])->nullable();
+            $table->enum('gender',["M","F","O"])->default("M");
             $table->text('address');
             $table->date('dob')->nullable();
             $table->string('password');//defualt 255 charecter
