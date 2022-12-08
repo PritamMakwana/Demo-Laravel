@@ -16,13 +16,15 @@ use App\Models\Customer;
 |
 */
 
-// Route::get('/regi',[RegistrationController::class,'index']);
-// Route::post('/regi',[RegistrationController::class,'register']);
-
 // Insert
-Route::get('/customer',[ProvisionServer::class,'index']);
-Route::post('/customer',[ProvisionServer::class,'store']);
+//name router
+Route::get('/insert',[ProvisionServer::class,'index'])->name('insert');
+Route::post('/view',[ProvisionServer::class,'store']);
 //select
-Route::get('/customer/view',[ProvisionServer::class,'view']);
+Route::get('/view',[ProvisionServer::class,'view']);
+
+
+Route::get('/',[RegistrationController::class,'index']);
+
 
 

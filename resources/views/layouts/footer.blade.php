@@ -1,3 +1,4 @@
-  <h4  style="background-color: red;"><u>footer area<u></h4>
+  <div  class="bg-danger position-sticky w-100 bottom-0" >
+    <p class="text-center text-light font-monospace fs-3">Laravel Coporation</p></div>
 </body>
 </html>

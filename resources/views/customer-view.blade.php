@@ -1,22 +1,13 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS v5.2.1 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-
-</head>
-
-<body>
-    <div class="container">
+@extends('layouts.main')
+@push('title') <title>View</title> @endpush
+@section('main-section')
+    <div class="container w-100 bg-light shadow-lg p-3 mb-5 bg-body rounded">
+        <div class="m-2 d-flex justify-content-end">
+            <a href="{{route('insert')}}" class="btn btn-danger">Add</a>
+        </div>
         <div class="table-responsive">
-            <table class="table table-light">
-                <thead>
+            <table class="table table-danger">
+                <thead class="text-danger">
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
@@ -27,6 +18,7 @@
                         <th>Date of Birth</th>
                         <th>Status</th>
                         <th>Points</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,25 +42,23 @@
                         <td>{{$c->dob}}</td>
                         <td>
                             @if($c->stauts =="1")
-                            Active
+                            <a href="">
+                                <span class="badge bg-info">Active</span>
+                            </a>
                             @else
-                            Inactive
+                            <a href="">
+                                <span class="badge bg-secondary">Inactive</span>
+                            </a>
                             @endif
                         </td>
                         <td>{{$c->points}}</td>
+                        <td>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
     </div>
-
-
-
-
-
-
-
-</body>
-
-</html>
+@endsection

@@ -28,7 +28,7 @@ class ProvisionServer extends Controller
         $customer->password = md5($req['password']);
         $customer->save();
 
-        return redirect('/customer/view');
+        return redirect('/view');
     }
 
     public function view()
