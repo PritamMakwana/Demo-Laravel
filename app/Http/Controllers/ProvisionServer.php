@@ -14,8 +14,8 @@ class ProvisionServer extends Controller
 
     public function store(Request $req)
     {
-        echo "<pre>";
-        print_r($req->all());
+        // echo "<pre>";
+        // print_r($req->all());
 //inset query
         $customer = new Customer;
         $customer->name = $req['name'];
@@ -28,6 +28,14 @@ class ProvisionServer extends Controller
         $customer->password = md5($req['password']);
         $customer->save();
 
-
+        return redirect('/customer/view');
     }
+
+    public function view()
+    {
+        $cus = Customer::all();
+        $data = compact('cus');
+        return view('customer-view')->with($data);
+    }
+
 }

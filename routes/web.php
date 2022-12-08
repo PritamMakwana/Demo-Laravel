@@ -19,7 +19,10 @@ use App\Models\Customer;
 // Route::get('/regi',[RegistrationController::class,'index']);
 // Route::post('/regi',[RegistrationController::class,'register']);
 
-
+// Insert
 Route::get('/customer',[ProvisionServer::class,'index']);
 Route::post('/customer',[ProvisionServer::class,'store']);
+//select
+Route::get('/customer/view',[ProvisionServer::class,'view']);
+
 
