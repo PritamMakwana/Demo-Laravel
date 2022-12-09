@@ -4,13 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use LDAP\Result;
 
 class ProvisionServer extends Controller
 {
 
     public function index()
     {
-        return view('form');
+        $url = url('/');
+        $title = "Insert Data";
+        $customer = null;
+        $data = compact('url','title','customer');
+        return view('form')->with($data);
     }
 
     public function store(Request $req)
@@ -53,4 +58,36 @@ class ProvisionServer extends Controller
 
         return redirect('view');
     }
+
+    public function edit($id){
+
+        $customer = Customer::find($id);
+        if (is_null($customer)) {
+            return redirect('view');
+        }else{
+            $title = "Update Data";
+            $url = url('/update')."/".$id;
+            $data = compact('customer','url','title');
+            return view('form')->with($data);
+        }
+    }
+
+    public function update($id,Request $req)
+    {
+        $customer = Customer::find($id);
+
+        $customer->name = $req['name'];
+        $customer->email = $req['email'];
+        $customer->address = $req['address'];
+        $customer->gender = $req['gen'];
+        $customer->city = $req['city'];
+        $customer->country = $req['country'];
+        $customer->dob = $req['dob'];
+        $customer->password = md5($req['password']);
+        $customer->save();
+
+        return redirect('/view');
+
+    }
+
 }

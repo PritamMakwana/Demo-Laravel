@@ -19,7 +19,7 @@ use App\Models\Customer;
 // Insert
 //name router
 Route::get('/insert',[ProvisionServer::class,'index'])->name('insert');
-Route::post('/view',[ProvisionServer::class,'store']);
+Route::post('/',[ProvisionServer::class,'store']);
 //select
 Route::get('/view',[ProvisionServer::class,'view']);
 
@@ -28,6 +28,11 @@ Route::get('/',[RegistrationController::class,'index']);
 
 //delete
 Route::get('/delete/{id}',[ProvisionServer::class,'delete'])->name('delete');
+//update
+Route::get('/edit/{id}',[ProvisionServer::class,'edit'])->name('edit');
+Route::post('/update/{id}',[ProvisionServer::class,'update'])->name('update');
+
+
 
 
 

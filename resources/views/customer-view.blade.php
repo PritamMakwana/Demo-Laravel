@@ -60,7 +60,9 @@
                         </a>
                     </td>
                     <td>
+                    <a href="{{route('edit',['id' => $c ->customer_id])}}">
                         <button class="btn btn-primary">Edit</button>
+                    </a>
                     </td>
                 </tr>
                 @endforeach
