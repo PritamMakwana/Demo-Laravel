@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ProvisionServer;
 use App\Models\Customer;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,29 @@ Route::get('/delete/{id}',[ProvisionServer::class,'delete'])->name('delete');
 //update
 Route::get('/edit/{id}',[ProvisionServer::class,'edit'])->name('edit');
 Route::post('/update/{id}',[ProvisionServer::class,'update'])->name('update');
+
+//session retrive
+Route::get('/get-all-session',function (){
+    $session = session()->all();
+    p($session);
+});
+//session store
+Route::get('set-session',function (Request $req){
+    $req->session()->put('u_id','10');
+    $req->session()->put('u_name','user master');
+    $req->session()->flash('status','Success'); //tempary store
+    return redirect('get-all-session');
+});
+//session destroy
+Route::get('destroy-session',function (){
+    //1 
+    // session()->forget('u_id');
+    // session()->forget('u_name');
+    //2
+    session()->forget(['u_id','u_name']);
+    return redirect('get-all-session');
+});
+
 
 
 
