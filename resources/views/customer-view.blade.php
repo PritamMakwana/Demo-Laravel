@@ -40,7 +40,7 @@
                     <td>{{$c->address}}</td>
                     <td>{{$c->city}}</td>
                     <td>{{$c->country}}</td>
-                    <td>{{get_formatted_date($c->dob,"d-M-Y")}}</td>
+                    <td>{{$c->dob}}</td>
                     <td>
                         @if($c->stauts =="1")
                         <a href="">
