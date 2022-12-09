@@ -23,8 +23,12 @@ Route::post('/view',[ProvisionServer::class,'store']);
 //select
 Route::get('/view',[ProvisionServer::class,'view']);
 
-
+//home page show
 Route::get('/',[RegistrationController::class,'index']);
+
+//delete
+Route::get('/delete/{id}',[ProvisionServer::class,'delete'])->name('delete');
+
 
 
 

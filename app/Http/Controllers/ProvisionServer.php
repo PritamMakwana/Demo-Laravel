@@ -7,8 +7,9 @@ use App\Models\Customer;
 
 class ProvisionServer extends Controller
 {
- 
-    public function index(){
+
+    public function index()
+    {
         return view('form');
     }
 
@@ -16,7 +17,7 @@ class ProvisionServer extends Controller
     {
         // echo "<pre>";
         // print_r($req->all());
-//inset query
+        //inset query
         $customer = new Customer;
         $customer->name = $req['name'];
         $customer->email = $req['email'];
@@ -38,4 +39,18 @@ class ProvisionServer extends Controller
         return view('customer-view')->with($data);
     }
 
+    public function delete($id)
+    {
+        //url method
+        // Customer::find($id)->delete();
+
+        //route method
+        $customer = Customer::find($id);
+
+        if (!is_null($customer)) {
+            $customer->delete();
+        }
+
+        return redirect('view');
+    }
 }
