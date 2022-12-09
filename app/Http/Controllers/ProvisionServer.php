@@ -20,8 +20,10 @@ class ProvisionServer extends Controller
 
     public function store(Request $req)
     {
-        // echo "<pre>";
-        // print_r($req->all());
+       //demo use helper 
+        // p($req->all());
+        // die();
+
         //inset query
         $customer = new Customer;
         $customer->name = $req['name'];
