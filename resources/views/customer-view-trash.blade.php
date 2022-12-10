@@ -1,10 +1,12 @@
 @extends('layouts.main')
-@push('title') <title>View</title> @endpush
+@push('title') 
+<title>Trash</title> 
+@endpush
 @section('main-section')
 <div class="container w-100 bg-light shadow-lg p-3 mb-5 bg-body rounded">
     <div class="m-2 d-flex justify-content-end">
         <a href="{{route('insert')}}" class="btn btn-danger me-3">Add</a>
-        <a href="{{route('trash')}}" class="btn btn-primary">Trash Data</a>
+        <a href="{{route('view')}}" class="btn btn-primary">Customer VIew</a>
     </div>
     <div class="table-responsive">
         <table class="table table-danger">
@@ -56,13 +58,13 @@
                     <td>{{$c->points}}</td>
                     <td>
                         <!-- <a href="{{url('/delete/')}}/{{$c->customer_id}}"> -->
-                        <a href="{{route('delete',['id' => $c ->customer_id])}}">
-                            <button class="btn btn-danger">Trash</button>
+                        <a href="{{route('force-delete',['id' => $c ->customer_id])}}">
+                            <button class="btn btn-danger">Delete</button>
                         </a>
                     </td>
                     <td>
-                    <a href="{{route('edit',['id' => $c ->customer_id])}}">
-                        <button class="btn btn-primary">Edit</button>
+                    <a href="{{route('restore',['id' => $c ->customer_id])}}">
+                        <button class="btn btn-primary">Restore</button>
                     </a>
                     </td>
                 </tr>

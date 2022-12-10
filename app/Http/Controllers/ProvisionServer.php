@@ -46,6 +46,13 @@ class ProvisionServer extends Controller
         return view('customer-view')->with($data);
     }
 
+    //trash
+    public function trash(){
+        $cus = Customer::onlyTrashed()->get();
+        $data = compact('cus');
+        return view('customer-view-trash')->with($data);
+    }
+
     public function delete($id)
     {
         //url method
@@ -60,6 +67,32 @@ class ProvisionServer extends Controller
 
         return redirect('view');
     }
+
+    //restore
+    public function restore($id)
+    {
+       
+        $customer = Customer::withTrashed()->find($id);
+
+        if (!is_null($customer)) {
+            $customer->restore();
+        }
+
+        return redirect('view');
+    }
+    //forceDelete
+    public function forceDelete($id)
+    {
+       
+        $customer = Customer::withTrashed()->find($id);
+
+        if (!is_null($customer)) {
+            $customer->forceDelete();
+        }
+
+        return redirect()->back();
+    }
+
 
     public function edit($id){
 

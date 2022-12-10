@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@push('title') <title>Insert</title> @endpush
+@push('title') <title>{{$customer!=null ? 'Update' : 'Insert'}}</title> @endpush
 @section('main-section')
 <div class="container">
   <h1 class="text-center">{{$title}}</h1>

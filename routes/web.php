@@ -22,7 +22,7 @@ use Illuminate\Http\Request;
 Route::get('/insert',[ProvisionServer::class,'index'])->name('insert');
 Route::post('/',[ProvisionServer::class,'store']);
 //select
-Route::get('/view',[ProvisionServer::class,'view']);
+Route::get('/view',[ProvisionServer::class,'view'])->name('view');
 
 //home page show
 Route::get('/',[RegistrationController::class,'index']);
@@ -54,6 +54,16 @@ Route::get('destroy-session',function (){
     session()->forget(['u_id','u_name']);
     return redirect('get-all-session');
 });
+
+//Trash
+Route::get('/trash',[ProvisionServer::class,'trash'])->name('trash');
+//restore
+Route::get('/restore/{id}',[ProvisionServer::class,'restore'])->name('restore');
+//parmanet delete
+Route::get('/force-delete/{id}',[ProvisionServer::class,'forceDelete'])->name('force-delete');
+
+
+
 
 
 
