@@ -14,13 +14,13 @@ class ProvisionServer extends Controller
         $url = url('/');
         $title = "Insert Data";
         $customer = null;
-        $data = compact('url','title','customer');
+        $data = compact('url', 'title', 'customer');
         return view('form')->with($data);
     }
 
     public function store(Request $req)
     {
-       //demo use helper 
+        //demo use helper 
         // p($req->all());
         // die();
 
@@ -47,7 +47,8 @@ class ProvisionServer extends Controller
     }
 
     //trash
-    public function trash(){
+    public function trash()
+    {
         $cus = Customer::onlyTrashed()->get();
         $data = compact('cus');
         return view('customer-view-trash')->with($data);
@@ -71,7 +72,7 @@ class ProvisionServer extends Controller
     //restore
     public function restore($id)
     {
-       
+
         $customer = Customer::withTrashed()->find($id);
 
         if (!is_null($customer)) {
@@ -83,7 +84,7 @@ class ProvisionServer extends Controller
     //forceDelete
     public function forceDelete($id)
     {
-       
+
         $customer = Customer::withTrashed()->find($id);
 
         if (!is_null($customer)) {
@@ -94,20 +95,21 @@ class ProvisionServer extends Controller
     }
 
 
-    public function edit($id){
+    public function edit($id)
+    {
 
         $customer = Customer::find($id);
         if (is_null($customer)) {
             return redirect('view');
-        }else{
+        } else {
             $title = "Update Data";
-            $url = url('/update')."/".$id;
-            $data = compact('customer','url','title');
+            $url = url('/update') . "/" . $id;
+            $data = compact('customer', 'url', 'title');
             return view('form')->with($data);
         }
     }
 
-    public function update($id,Request $req)
+    public function update($id, Request $req)
     {
         $customer = Customer::find($id);
 
@@ -122,7 +124,32 @@ class ProvisionServer extends Controller
         $customer->save();
 
         return redirect('/view');
-
     }
 
+    // laravel from open
+    public function laravelForm()
+    {
+        $json = null;
+        $data = compact('json');
+        return view('laravel-form')->with($data);
+    }
+    //formShow
+    public function formShow(Request $req)
+    {
+        $arrayData = [
+            'name' => $req['username'],
+            'password' => $req['password'],
+            'email' => $req['email'],
+            'file' => $req['uploadFile'],
+            'hobby' => $req['hbb'],
+            'gender' => $req['gender'],
+            'rollno' => $req['rollno'],
+            'dateofbrith' => $req['dob'],
+            'city' => $req['city']
+        ];
+
+        $json = json_encode($arrayData);
+        $data = compact('json');
+        return view('laravel-form')->with($data);
+    }
 }

@@ -62,7 +62,9 @@ Route::get('/restore/{id}',[ProvisionServer::class,'restore'])->name('restore');
 //parmanet delete
 Route::get('/force-delete/{id}',[ProvisionServer::class,'forceDelete'])->name('force-delete');
 
-
+//laravel Form
+Route::get('/laravel-form',[ProvisionServer::class,'laravelForm']);
+Route::post('/laravel-form',[ProvisionServer::class,'formShow']);
 
 
 
