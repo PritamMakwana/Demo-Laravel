@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use LDAP\Result;
+use App\Http\Controllers\Input;
+use App\Models\gallery;
 
 class ProvisionServer extends Controller
 {
@@ -151,5 +153,35 @@ class ProvisionServer extends Controller
         $json = json_encode($arrayData);
         $data = compact('json');
         return view('laravel-form')->with($data);
+    }
+
+    //Gallery
+    //show image
+    public function galleryShow()
+    {
+        $gal = gallery::all();
+        $data = compact('gal');
+        return view('gallery')->with($data);
+    }
+
+    //upload images
+    public function galleryUplaod(Request $req)
+    {
+        $req->validate([
+            'imageup' => 'required|mimes:png,jpg,jpeg|max:2048'
+        ]);
+
+        $fileName = time() . "-img." . $req->file('imageup')->getClientOriginalExtension();
+        $req->file('imageup')->storeAs('public/uploads', $fileName);
+
+        $gal = new gallery;
+        $gal->img_path = 'public/uploads/' . $fileName;
+        $gal->save();
+
+        // $cus = Customer::all();
+        // $data = compact('cus');
+        // return view('customer-view')->with($data);
+
+        return view('gallery');
     }
 }

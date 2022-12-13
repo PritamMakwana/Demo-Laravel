@@ -42,6 +42,9 @@
             <li class="nav-item">
               <a class="nav-link text-light" href="{{url('/laravel-form')}}">Laravel Form</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="{{url('/gallery')}}">Gallery</a>
+            </li>
 
           </ul>
         </div>

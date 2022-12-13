@@ -66,7 +66,9 @@ Route::get('/force-delete/{id}',[ProvisionServer::class,'forceDelete'])->name('f
 Route::get('/laravel-form',[ProvisionServer::class,'laravelForm']);
 Route::post('/laravel-form',[ProvisionServer::class,'formShow']);
 
-
+//gallery
+Route::get('/gallery',[ProvisionServer::class,'galleryShow']);
+Route::post('/gallery',[ProvisionServer::class,'galleryUplaod']);
 
 
 
