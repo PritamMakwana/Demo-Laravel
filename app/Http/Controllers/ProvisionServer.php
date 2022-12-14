@@ -41,10 +41,16 @@ class ProvisionServer extends Controller
         return redirect('/view');
     }
 
-    public function view()
+    public function view(Request $req)
     {
-        $cus = Customer::all();
-        $data = compact('cus');
+        $search = $req['search'] ?? "";
+
+        if($search != ""){
+            $cus = Customer::where('name','LIKE',"%$search%")->orWhere('email','LIKE',"%$search%")->get();
+        }else{
+            $cus = Customer::all();
+        }
+        $data = compact('cus','search');
         return view('customer-view')->with($data);
     }
 

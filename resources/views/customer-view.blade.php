@@ -2,6 +2,19 @@
 @push('title') <title>View</title> @endpush
 @section('main-section')
 <div class="container w-100 bg-light shadow-lg p-3 mb-5 bg-body rounded">
+
+    <div class="m-2 d-flex justify-content-start">
+    <form action="" class="col-9">
+        <div class="mb-3">
+          <input type="search" name="search" class="form-control" placeholder="Search name or email" value="{{$search}}" >
+        </div>
+        <button class="btn btn-primary">Search</button>
+        <a href="{{url('/view')}}">
+        <button class="btn btn-info" type="button">All Show</button>
+        </a>
+    </form>
+    </div>
+
     <div class="m-2 d-flex justify-content-end">
         <a href="{{route('insert')}}" class="btn btn-danger me-3">Add</a>
         <a href="{{route('trash')}}" class="btn btn-primary">Trash Data</a>
@@ -61,9 +74,9 @@
                         </a>
                     </td>
                     <td>
-                    <a href="{{route('edit',['id' => $c ->customer_id])}}">
-                        <button class="btn btn-primary">Edit</button>
-                    </a>
+                        <a href="{{route('edit',['id' => $c ->customer_id])}}">
+                            <button class="btn btn-primary">Edit</button>
+                        </a>
                     </td>
                 </tr>
                 @endforeach
