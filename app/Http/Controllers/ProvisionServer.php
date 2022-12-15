@@ -48,7 +48,7 @@ class ProvisionServer extends Controller
         if($search != ""){
             $cus = Customer::where('name','LIKE',"%$search%")->orWhere('email','LIKE',"%$search%")->get();
         }else{
-            $cus = Customer::all();
+            $cus = Customer::paginate(10);
         }
         $data = compact('cus','search');
         return view('customer-view')->with($data);

@@ -23,6 +23,7 @@
         <table class="table table-danger">
             <thead class="text-danger">
                 <tr>
+                    <th>No.</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Gender</th>
@@ -37,8 +38,12 @@
                 </tr>
             </thead>
             <tbody>
+                @php 
+                $i=1;
+                @endphp
                 @foreach($cus as $c)
                 <tr>
+                    <td>{{$i}}</td>
                     <td>{{$c->name}}</td>
                     <td>{{$c->email}}</td>
                     <td>
@@ -79,9 +84,13 @@
                         </a>
                     </td>
                 </tr>
+                @php 
+                $i++;
+                @endphp
                 @endforeach
             </tbody>
         </table>
+        {{ $cus->links('pagination::bootstrap-5') }}
     </div>
 </div>
 @endsection
