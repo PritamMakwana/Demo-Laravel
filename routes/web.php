@@ -6,6 +6,7 @@ use App\Http\Controllers\ProvisionServer;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,3 +77,6 @@ Route::post('/laravel-form', [ProvisionServer::class, 'formShow']);
 //gallery
 Route::get('/gallery', [ProvisionServer::class, 'galleryShow']);
 Route::post('/gallery', [ProvisionServer::class, 'galleryUplaod']);
+
+//one to one reletion in table using orm
+Route::get('onetoone/data', [IndexController::class, 'index']);
