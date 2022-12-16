@@ -10,8 +10,15 @@ class Member extends Model
     use HasFactory;
     protected $primaryKey = "member_id";
 
-    function getGroup(){
-        return $this->hasOne('App\Models\Group','group_id');
+    //one to one
+    // function getGroup(){
+    //     return $this->hasOne('App\Models\Group','group_id');
+    // }
+
+    //one to many
+    public function group(){
+        return $this->hasMany('App\Models\Group','group_id','group_id');
     }
+
 
 }

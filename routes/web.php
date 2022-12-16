@@ -80,3 +80,5 @@ Route::post('/gallery', [ProvisionServer::class, 'galleryUplaod']);
 
 //one to one reletion in table using orm
 Route::get('onetoone/data', [IndexController::class, 'index']);
+//one to many relation in table 
+Route::get('onetoone/group', [IndexController::class, 'group']);
