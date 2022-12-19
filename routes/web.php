@@ -27,10 +27,10 @@ Route::post('/', [ProvisionServer::class, 'store']);
 Route::get('/view', [ProvisionServer::class, 'view'])->name('view');
 
 //home page show
-// Route::get('/',[RegistrationController::class,'index']);
+Route::get('/',[RegistrationController::class,'index']);
 
 //language 
-Route::get('/{lang?}', function ($lang = null) {
+Route::get('/lng/{lang?}', function ($lang = null) {
     App::setLocale($lang);
     return view('home');
 });
