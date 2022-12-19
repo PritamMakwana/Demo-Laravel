@@ -21,7 +21,10 @@ use App\Http\Controllers\IndexController;
 
 
 Route::post('/', [ProvisionServer::class, 'store']);
-
+//name router
+Route::get('/insert', [ProvisionServer::class, 'index'])->name('insert');
+//select
+Route::get('/view', [ProvisionServer::class, 'view'])->name('view');
 
 //Route Middleware
 // //--- protected middleware 
@@ -56,28 +59,28 @@ Route::post('/', [ProvisionServer::class, 'store']);
 // //-------------
 
 // second way
-Route::middleware(['guard'])->group(function () {
-    // //name router
-    Route::get('/insert', [ProvisionServer::class, 'index'])->name('insert');
-    // //select
-    Route::get('/view', [ProvisionServer::class, 'view'])->name('view');
-});
+// Route::middleware(['guard'])->group(function () {
+//     // //name router
+//     Route::get('/insert', [ProvisionServer::class, 'index'])->name('insert');
+//     // //select
+//     Route::get('/view', [ProvisionServer::class, 'view'])->name('view');
+// });
 
 
-//protected else part
-Route::get('/no-access', function () {
-    echo "You re not to allowed access the page";
-    die();
-});
-//session login & logout  (protected)
-Route::get('/login', function () {
-    session()->put('user_id', 1);
-    return redirect('/');
-});
-Route::get('/logout', function () {
-    session()->forget('user_id');
-    return redirect('/');
-});
+// //protected else part
+// Route::get('/no-access', function () {
+//     echo "You re not to allowed access the page";
+//     die();
+// });
+// //session login & logout  (protected)
+// Route::get('/login', function () {
+//     session()->put('user_id', 1);
+//     return redirect('/');
+// });
+// Route::get('/logout', function () {
+//     session()->forget('user_id');
+//     return redirect('/');
+// });
 
 
 
