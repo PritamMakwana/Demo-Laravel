@@ -19,15 +19,32 @@ use App\Http\Controllers\IndexController;
 |
 */
 
-// Insert
-//name router
-Route::get('/insert', [ProvisionServer::class, 'index'])->name('insert');
+
 Route::post('/', [ProvisionServer::class, 'store']);
+
+//--- protected middleware 
+//name router
+Route::get('/insert', [ProvisionServer::class, 'index'])->name('insert')->middleware('guard');
 //select
-Route::get('/view', [ProvisionServer::class, 'view'])->name('view');
+Route::get('/view', [ProvisionServer::class, 'view'])->name('view')->middleware('guard');
+//-------------
+//protected else part
+Route::get('/no-access', function () {
+    echo "You re not to allowed access the page";
+    die();
+});
+//session login & logout  (protected)
+Route::get('/login', function () {
+    session()->put('user_id', 1);
+    return redirect('/');
+});
+Route::get('/logout', function () {
+    session()->forget('user_id');
+    return redirect('/');
+});
 
 //home page show
-Route::get('/',[RegistrationController::class,'index']);
+Route::get('/', [RegistrationController::class, 'index']);
 
 //language 
 Route::get('/lng/{lang?}', function ($lang = null) {
