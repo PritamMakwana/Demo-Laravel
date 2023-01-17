@@ -188,6 +188,8 @@ class ProvisionServer extends Controller
         // $data = compact('cus');
         // return view('customer-view')->with($data);
 
-        return view('gallery');
+        $gal = gallery::all();
+        $data = compact('gal');
+        return view('gallery')->with($data);
     }
 }

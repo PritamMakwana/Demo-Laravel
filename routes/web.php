@@ -87,6 +87,10 @@ Route::get('/view', [ProvisionServer::class, 'view'])->name('view');
 //home page show
 Route::get('/', [RegistrationController::class, 'index']);
 
+//welcome page
+Route::get('/welcome', [RegistrationController::class, 'welcome']);
+
+
 //language 
 Route::get('/lng/{lang?}', function ($lang = null) {
     App::setLocale($lang);
