@@ -48,6 +48,9 @@
             <li class="nav-item">
               <a class="nav-link text-light" href="{{url('/welcome')}}">Welcome</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="{{url('/emp')}}">DB class</a>
+            </li>
 
           </ul>
         </div>

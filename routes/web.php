@@ -7,6 +7,8 @@ use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\DBemp;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -144,3 +146,20 @@ Route::post('/gallery', [ProvisionServer::class, 'galleryUplaod']);
 Route::get('onetoone/data', [IndexController::class, 'index']);
 //one to many relation in table 
 Route::get('onetoone/group', [IndexController::class, 'group']);
+
+
+//Query Bulider
+//select
+Route::get('/emp', [DBemp::class, 'empShow']);
+//where condition
+Route::get('/emp/where', [DBemp::class, 'empWhere']);
+//Insert
+Route::get('/emp/insert', [DBemp::class, 'empInsert']);
+//Update
+Route::get('/emp/update', [DBemp::class, 'empUpdate']);
+//Delete
+Route::get('/emp/delete', [DBemp::class, 'empDelete']);
+//Aggregate Query
+Route::get('/emp/agg', [DBemp::class, 'empAgg']);
+
+
