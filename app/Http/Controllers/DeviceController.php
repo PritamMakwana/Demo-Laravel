@@ -10,13 +10,31 @@ class DeviceController extends Controller
     //API
 
     //2.get data without parameter
-    public function getList(){
-      return Device::all();  
+    public function getList()
+    {
+        return Device::all();
     }
 
-     //3.get data with parameter
-     public function getListpara($id = null){
-        return $id ? Device::find($id):Device::all();  
-      }
-}
+    //3.get data with parameter
+    public function getListpara($id = null)
+    {
+        return $id ? Device::find($id) : Device::all();
+    }
 
+    //3.API with post method (Api using data insert)
+
+    public function add(Request $req)
+    {
+        $device = new Device;
+        $device->name = $req->name;
+        $device->member_id = $req->member_id;
+        $result = $device->save();
+
+        if($result){
+            return[ "result" => "Data has been saved"];
+        }else{
+            return ["result" => "operation Failed"];
+        }
+
+    }
+}
