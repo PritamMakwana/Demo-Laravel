@@ -25,15 +25,18 @@ Route::get('/get-data',function (){
     return 'Hello';
 });
 
-//1. make frist api
+//1. make frist api  mehtod get
 Route::get("dummy",[dummyAPI::class,"getData"]);
 //http://127.0.0.1:8000/api/dummy
 
-//2.get data with API
+//2.get data with API mehtod get
 Route::get("getList",[DeviceController::class,"getList"]);
 
-//3.get data with parameter API
+//3.get data with parameter API mehtod get
 Route::get("getListpara/{id?}",[DeviceController::class,"getListpara"]);
 
-//2.insert data with parameter API
+//2.insert data using API mehtod post
 Route::post("add",[DeviceController::class,"add"]);
+
+//3.update data using API mehtod put
+Route::put("update",[DeviceController::class,"update"]);

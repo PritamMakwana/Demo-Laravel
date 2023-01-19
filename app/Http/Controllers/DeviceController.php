@@ -37,4 +37,19 @@ class DeviceController extends Controller
         }
 
     }
+
+    public function update(Request $req)
+    {
+        $device = Device::find($req->id);
+        $device->name = $req->name;
+        $device->member_id = $req->member_id;
+        $result = $device->save();
+
+        if($result){
+            return[ "result" => "Data has been update"];
+        }else{
+            return ["result" => "update operation Failed"];
+        }
+
+    }
 }
