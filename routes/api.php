@@ -40,3 +40,6 @@ Route::post("add",[DeviceController::class,"add"]);
 
 //3.update data using API mehtod put
 Route::put("update",[DeviceController::class,"update"]);
+
+//3.update data using API mehtod delete
+Route::delete("delete/{id}",[DeviceController::class,"delete"]);
