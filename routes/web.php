@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\DBemp;
+use  Illuminate\Support\Str;
 
 
 /*
@@ -163,3 +164,20 @@ Route::get('/emp/delete', [DBemp::class, 'empDelete']);
 Route::get('/emp/agg', [DBemp::class, 'empAgg']);
 
 
+//Fuent Strings
+Route::get('/fuent', function(){
+    //1 way
+// $info = "Hi, learn Laravel";
+// $info = Str:: ucfirst($info);
+// $info = Str::replaceFirst("Hi","Hello",$info);
+// echo $info;
+
+  //2 way
+  $info = "Hi, learn Laravel";
+  $info = Str::of($info)
+  ->ucfirst($info)
+  ->replaceFirst("Hi","Hello",$info);
+
+  echo $info;
+
+});
