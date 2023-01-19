@@ -181,3 +181,6 @@ Route::get('/fuent', function(){
   echo $info;
 
 });
+
+//Route model binding
+Route::get('rmb/{key:customer_id}', [ProvisionServer::class, 'rmb']);

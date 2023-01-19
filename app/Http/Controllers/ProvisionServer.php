@@ -192,4 +192,17 @@ class ProvisionServer extends Controller
         $data = compact('gal');
         return view('gallery')->with($data);
     }
+
+
+    //Route model binding
+
+    public function rmb(Customer $key){
+        //single record
+        return $key;
+        //alls record
+       // return $key->all();
+    }
+
+
+
 }
