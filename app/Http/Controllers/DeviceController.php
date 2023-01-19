@@ -13,5 +13,10 @@ class DeviceController extends Controller
     public function getList(){
       return Device::all();  
     }
+
+     //3.get data with parameter
+     public function getListpara($id = null){
+        return $id ? Device::find($id):Device::all();  
+      }
 }
 

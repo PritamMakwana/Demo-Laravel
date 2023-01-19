@@ -31,3 +31,6 @@ Route::get("dummy",[dummyAPI::class,"getData"]);
 
 //2.get data with API
 Route::get("getList",[DeviceController::class,"getList"]);
+
+//2.get data with parameter API
+Route::get("getListpara/{id?}",[DeviceController::class,"getListpara"]);
