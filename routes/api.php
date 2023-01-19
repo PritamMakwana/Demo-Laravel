@@ -35,11 +35,14 @@ Route::get("getList",[DeviceController::class,"getList"]);
 //3.get data with parameter API mehtod get
 Route::get("getListpara/{id?}",[DeviceController::class,"getListpara"]);
 
-//2.insert data using API mehtod post
+//4.insert data using API mehtod post
 Route::post("add",[DeviceController::class,"add"]);
 
-//3.update data using API mehtod put
+//5.update data using API mehtod put
 Route::put("update",[DeviceController::class,"update"]);
 
-//3.update data using API mehtod delete
+//6.delete data using API mehtod delete
 Route::delete("delete/{id}",[DeviceController::class,"delete"]);
+
+//6.serach data using API mehtod get
+Route::get("search/{name}",[DeviceController::class,"search"]);
