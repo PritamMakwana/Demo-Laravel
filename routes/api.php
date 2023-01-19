@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\dummyAPI;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/get-data',function (){
     return 'Hello';
 });
+
+//1. make frist api
+Route::get("dummy",[dummyAPI::class,"getData"]);
+//http://127.0.0.1:8000/api/dummy
