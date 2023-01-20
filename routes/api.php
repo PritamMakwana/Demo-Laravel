@@ -46,3 +46,6 @@ Route::delete("delete/{id}",[DeviceController::class,"delete"]);
 
 //6.serach data using API mehtod get
 Route::get("search/{name}",[DeviceController::class,"search"]);
+
+//7.file upload in api
+Route::post("upload",[DeviceController::class,'upload']);

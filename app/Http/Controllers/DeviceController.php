@@ -71,4 +71,9 @@ class DeviceController extends Controller
         return Device::where("name","like","%".$name)->get();
     }
 
+    public function upload(Request $req){
+        $result = $req->file('filex')->store('apiDocs');
+        return ['result' => $result ];
+    }
+
 }
