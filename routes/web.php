@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\DBemp;
+use App\Http\Controllers\dummyAPI;
 use  Illuminate\Support\Str;
 
 
@@ -184,3 +185,8 @@ Route::get('/fuent', function(){
 
 //Route model binding
 Route::get('rmb/{key:customer_id}', [ProvisionServer::class, 'rmb']);
+
+//Inline blade template 
+Route::get('getblade', [dummyAPI::class, 'getblade']);
+
+
