@@ -142,7 +142,7 @@ Route::post('/laravel-form', [ProvisionServer::class, 'formShow']);
 
 //gallery
 Route::get('/gallery', [ProvisionServer::class, 'galleryShow']);
-Route::post('/gallery', [ProvisionServer::class, 'galleryUplaod']);
+Route::post('/galleryupload', [ProvisionServer::class, 'galleryUplaod']);
 
 //one to one reletion in table using orm
 Route::get('onetoone/data', [IndexController::class, 'index']);

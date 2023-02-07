@@ -13,7 +13,7 @@
 </head>
 
 <body>
-
+<header>
   <div class="position-sticky top-0">
     <nav class="navbar  navbar-expand-lg navbar-danger bg-danger">
       <div class="container-fluid">
@@ -57,3 +57,4 @@
       </div>
     </nav>
   </div>
+</header>

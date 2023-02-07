@@ -178,19 +178,14 @@ class ProvisionServer extends Controller
         ]);
 
         $fileName = time() . "-img." . $req->file('imageup')->getClientOriginalExtension();
-        $req->file('imageup')->storeAs('public/uploads', $fileName);
+        $req->imageup->move(public_path('uploads'), $fileName);
+
 
         $gal = new gallery;
-        $gal->img_path = 'public/uploads/' . $fileName;
+        $gal->img_path = 'uploads/' . $fileName;
         $gal->save();
 
-        // $cus = Customer::all();
-        // $data = compact('cus');
-        // return view('customer-view')->with($data);
-
-        $gal = gallery::all();
-        $data = compact('gal');
-        return view('gallery')->with($data);
+        return redirect('gallery');
     }
 
 
